@@ -3,15 +3,15 @@
   <!-- NAV BAR-->
   <div class="row fixed-top bg-primary" style="height: 50px;">
     <div class="col-sm-2 h3 make-center text-light title">
-      DACBOOK
+      {{title}}
     </div>
 
     <div class="col-sm-6">
         <div class="form-group row">
             <div class="col-sm-9">
-              <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Whatsapp..">
+              <input type="text" class="form-control form-control-lg" [(ngModel)]="post" [placeholder]="postLabel">
             </div>
-            <button type="button" class="col-sm-3 btn btn-info btn-lg">POST</button>
+            <button type="button" class="col-sm-3 btn btn-info btn-lg" (click)="postContent()">POST</button>
         </div>
     </div>
 
@@ -39,7 +39,7 @@
 
         <!--TEXT -->
         <div  class="mt-1" *ngFor="let item of postItemList">
-            <div *ngIf="item.type == 'post'" class="row bg-info" style="height: 150px">
+            <div *ngIf="item.type == 'text'" class="row bg-info" style="height: 150px">
                     <div class="col-sm-12 make-center text-white">
                         Hello World!!
                     </div>
