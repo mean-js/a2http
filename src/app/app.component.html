@@ -18,14 +18,14 @@
     <div class="col-sm-2 make-center">
         <label style="cursor: pointer;" class="bg-info form-control form-control-lg make-center mt-2 text-light">
             Upload Image
-            <input style="display: none" onchange="postImageOption2(this);" accept="image/*" multiple type="file" class="form-control-file" >
+            <input style="display: none" (change)="postImage($event.target);" accept="image/*" multiple type="file" class="form-control-file" >
         </label>
     </div>
 
     <div class="col-sm-2 make-center">
         <label style="cursor: pointer;" class="bg-info form-control form-control-lg make-center mt-2 text-light">
-            Upload Vidoe
-            <input style="display: none" onchange="postImageOption2(this);" accept="video/*" multiple type="file" class="form-control-file" >
+            Upload Video
+            <input style="display: none" (change)="postVideo($event.target);" accept="video/*" multiple type="file" class="form-control-file" >
         </label>
     </div>
   </div>
@@ -41,19 +41,19 @@
         <div  class="mt-1" *ngFor="let item of postItemList">
             <div *ngIf="item.type == 'text'" class="row bg-info" style="height: 150px">
                     <div class="col-sm-12 make-center text-white">
-                        Hello World!!
+                        {{item.post}}
                     </div>
             </div>
 
             <div *ngIf="item.type == 'image'" class="row bg-info" style="height: 300px">
                 <div class="col-sm-12 make-center text-white">
-                    <img src="./assets/hacked.jpg" style="height: 300px;" class="img-fluid rounded" alt="Image not available">
+                    <img [src]="item.src" style="height: 300px;" class="img-fluid rounded" alt="Image not available">
                 </div>
             </div>
 
             <div *ngIf="item.type == 'video'" class="row bg-info" style="height: 300px">
                 <div class="col-sm-12 make-center text-white">
-                    <video src="" style="height: 300px;" controls autoplay></video>
+                    <video [src]="item.src" style="height: 300px;" controls autoplay></video>
                 </div>
             </div>
 
