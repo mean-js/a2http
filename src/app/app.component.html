@@ -1,20 +1,96 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container-fluid">
 
+  <!-- NAV BAR-->
+  <div class="row fixed-top bg-primary" style="height: 50px;">
+    <div class="col-sm-2 h3 make-center text-light title">
+      DACBOOK
+    </div>
+
+    <div class="col-sm-6">
+        <div class="form-group row">
+            <div class="col-sm-9">
+              <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Whatsapp..">
+            </div>
+            <button type="button" class="col-sm-3 btn btn-info btn-lg">POST</button>
+        </div>
+    </div>
+
+    <div class="col-sm-2 make-center">
+        <label style="cursor: pointer;" class="bg-info form-control form-control-lg make-center mt-2 text-light">
+            Upload Image
+            <input style="display: none" onchange="postImageOption2(this);" accept="image/*" multiple type="file" class="form-control-file" >
+        </label>
+    </div>
+
+    <div class="col-sm-2 make-center">
+        <label style="cursor: pointer;" class="bg-info form-control form-control-lg make-center mt-2 text-light">
+            Upload Vidoe
+            <input style="display: none" onchange="postImageOption2(this);" accept="video/*" multiple type="file" class="form-control-file" >
+        </label>
+    </div>
+  </div>
+  
+  <!--body-->
+  <div class="row" style="margin-top: 50px">
+
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-6">
+
+        <!--TEXT -->
+        <div  class="mt-1" >
+            <div class="row bg-info" style="height: 150px">
+                    <div class="col-sm-12 make-center text-white">
+                        Hello World!!
+                    </div>
+            </div>
+            <div class="row">
+                <button onclick="likeCount(this);" type="button" class="btn col-sm-6  btn-primary">
+                    <i  class="fas fa-thumbs-up"> 0</i>
+                </button>
+                <button onclick="dislikeCount(this);" type="button" class="btn col-sm-6  btn-secondary">
+                    <i  class="fas fa-thumbs-down "> 0</i>	
+                </button>
+            </div>
+        </div>
+
+        <!-- REFERENCE BLOCK FOR IMAGE-->
+        <div  class="mt-1" >
+            <div class="row bg-info" style="height: 300px">
+                <div class="col-sm-12 make-center text-white">
+                    <img src="./assets/hacked.jpg" style="height: 300px;" class="img-fluid rounded" alt="Image not available">
+                </div>
+            </div>
+            <div class="row">
+                <button onclick="likeCount(this);" type="button" class="btn col-sm-6  btn-primary">
+                    <i  class="fa fa-thumbs-up"> 0</i>
+                </button>
+                <button onclick="dislikeCount(this);" type="button" class="btn col-sm-6  btn-secondary">
+                    <i  class="fa fa-thumbs-down "> 0</i>	
+                </button>
+            </div>
+      </div>
+
+
+      <!-- REFERENCE BLOCK FOR VIDEO-->
+      <div  class="mt-1" >
+            <div class="row bg-info" style="height: 300px">
+                <div class="col-sm-12 make-center text-white">
+                    <video src="" style="height: 300px;" controls autoplay></video>
+                </div>
+            </div>
+            <div class="row">
+                <button onclick="likeCount(this);" type="button" class="btn col-sm-6  btn-primary">
+                    <i  class="fa fa-thumbs-up"> 0</i>
+                </button>
+                <button onclick="dislikeCount(this);" type="button" class="btn col-sm-6  btn-secondary">
+                    <i  class="fa fa-thumbs-down "> 0</i>	
+                </button>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="col-sm-3"></div>
+  </div>
+</div>

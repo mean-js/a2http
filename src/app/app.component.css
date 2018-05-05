@@ -1,0 +1,12 @@
+.make-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    background-image: linear-gradient(to top right, white, grey);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
