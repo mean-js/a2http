@@ -38,12 +38,25 @@
     <div class="col-sm-6">
 
         <!--TEXT -->
-        <div  class="mt-1" >
-            <div class="row bg-info" style="height: 150px">
+        <div  class="mt-1" *ngFor="let item of postItemList">
+            <div *ngIf="item.type == 'post'" class="row bg-info" style="height: 150px">
                     <div class="col-sm-12 make-center text-white">
                         Hello World!!
                     </div>
             </div>
+
+            <div *ngIf="item.type == 'image'" class="row bg-info" style="height: 300px">
+                <div class="col-sm-12 make-center text-white">
+                    <img src="./assets/hacked.jpg" style="height: 300px;" class="img-fluid rounded" alt="Image not available">
+                </div>
+            </div>
+
+            <div *ngIf="item.type == 'video'" class="row bg-info" style="height: 300px">
+                <div class="col-sm-12 make-center text-white">
+                    <video src="" style="height: 300px;" controls autoplay></video>
+                </div>
+            </div>
+
             <div class="row">
                 <button onclick="likeCount(this);" type="button" class="btn col-sm-6  btn-primary">
                     <i  class="fas fa-thumbs-up"> 0</i>
@@ -53,43 +66,8 @@
                 </button>
             </div>
         </div>
-
-        <!-- REFERENCE BLOCK FOR IMAGE-->
-        <div  class="mt-1" >
-            <div class="row bg-info" style="height: 300px">
-                <div class="col-sm-12 make-center text-white">
-                    <img src="./assets/hacked.jpg" style="height: 300px;" class="img-fluid rounded" alt="Image not available">
-                </div>
-            </div>
-            <div class="row">
-                <button onclick="likeCount(this);" type="button" class="btn col-sm-6  btn-primary">
-                    <i  class="fa fa-thumbs-up"> 0</i>
-                </button>
-                <button onclick="dislikeCount(this);" type="button" class="btn col-sm-6  btn-secondary">
-                    <i  class="fa fa-thumbs-down "> 0</i>	
-                </button>
-            </div>
-      </div>
-
-
-      <!-- REFERENCE BLOCK FOR VIDEO-->
-      <div  class="mt-1" >
-            <div class="row bg-info" style="height: 300px">
-                <div class="col-sm-12 make-center text-white">
-                    <video src="" style="height: 300px;" controls autoplay></video>
-                </div>
-            </div>
-            <div class="row">
-                <button onclick="likeCount(this);" type="button" class="btn col-sm-6  btn-primary">
-                    <i  class="fa fa-thumbs-up"> 0</i>
-                </button>
-                <button onclick="dislikeCount(this);" type="button" class="btn col-sm-6  btn-secondary">
-                    <i  class="fa fa-thumbs-down "> 0</i>	
-                </button>
-        </div>
     </div>
 
-    </div>
 
     <div class="col-sm-3"></div>
   </div>
