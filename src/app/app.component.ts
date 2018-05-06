@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -14,7 +15,11 @@ export class AppComponent {
 
   public postItemList: any[] = [];
 
-  constructor(private domSanitizer: DomSanitizer) {
+  private domSanitizer: DomSanitizer;
+  private http: HttpClient;
+  constructor(domSanitizer: DomSanitizer, http: HttpClient) {
+    this.domSanitizer = domSanitizer;
+    this.http = http;
   }
 
   public postContent(): void {
@@ -33,6 +38,57 @@ export class AppComponent {
 
       const newPost = {'type': 'image', 'src': src};
       this.postItemList.push(newPost);
+
+      this.postImage2Server(currentFile);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  public postImage2Server(currentFile) {
+    try {
+        const url = 'http://localhost:3006/upload/imgpost';
+        const formData = new FormData();
+        formData.append('imgpost', currentFile, currentFile.name);
+
+
+        // OPTION-1
+        this.http.post(url, formData).subscribe((data) => {
+          console.log(data);
+        });
+
+        this.http.post(url, formData).subscribe(function(data) {
+          console.log(data);
+        });
+
+        // OPTION-2
+        this.http.post(url, formData).subscribe(
+          (data) => {
+            console.log(data);
+          },
+
+          (err) => {
+            console.log('OPTION2 ADV', err);
+          }
+        );
+
+        this.http.post(url, formData).subscribe(function(data) {
+            console.log(data);
+        }, function(err) {
+            console.log('OPtion2 Old', err);
+        });
+
+
+        // OPTION-3
+        this.http.post(url, formData).subscribe({
+          next(data) {
+            console.log(data);
+          },
+
+          error(err) {
+            console.log(err);
+          }
+        });
     } catch (err) {
       console.log(err);
     }
